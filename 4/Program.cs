@@ -14,9 +14,9 @@
     
 //         Console.Write("не кратно");
 
-Console.WriteLine ("Введите чиcло");
-string a = Console.ReadLine ();
-if (a.Length<=2)
-    Console.WriteLine ("Третьей цифры нет");
-else
-    Console.WriteLine ("третья цифра: " +a[2]);
+// Console.WriteLine ("Введите чиcло");
+// string a = Console.ReadLine ();
+// if (a.Length<=2)
+//     Console.WriteLine ("Третьей цифры нет");
+// else
+//     Console.WriteLine ("третья цифра: " +a[2]);
