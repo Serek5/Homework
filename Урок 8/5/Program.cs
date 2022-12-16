@@ -5,40 +5,33 @@
 // 11 16 15 06
 // 10 09 08 07
 
-int len = 4;
-int[,] table = new int[len, len];
-FillArraySpiral(table, len);
-PrintArray(table);
-
-void FillArraySpiral(int[,] array, int n)
+int[] ArrayNums(string nums)
 {
-    int i = 0, j = 0;
-    int value = 1;
-    for (int e = 0; e < n * n; e++)
+    string[] elemArr = nums.Split(" ", StringSplitOptions.RemoveEmptyEntries);
+    int[] array = new int[elemArr.Length];
+    for (int i = 0; i < elemArr.Length; i++)
     {
-        int k = 0;
-        do { array[i, j++] = value++; } while (++k < n - 1);
-        for (k = 0; k < n - 1; k++) array[i++, j] = value++;
-        for (k = 0; k < n - 1; k++) array[i, j--] = value++;
-        for (k = 0; k < n - 1; k++) array[i--, j] = value++;
-        ++i; ++j;
-        n = n < 2 ? 0 : n - 2;
+        array[i] = int.Parse(elemArr[i]);
     }
+    return array;
 }
 
-void PrintArray(int[,] array)
+int CountPositive(int[] arr)
 {
-    for (int i = 0; i < array.GetLength(0); i++)
+    int count = 0;
+    for (int i = 0; i < arr.Length; i++)
     {
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            if (array[i, j] < 10)
-            {
-                Console.Write("0" + array[i, j]);
-                Console.Write(" ");
-            }
-            else Console.Write(array[i, j] + " ");
-        }
-        Console.WriteLine();
+        if (arr[i] > 0) count++;
     }
+    return count;
 }
+
+Console.Write("Введите числа чтерез пробел: ");
+
+string elements = Console.ReadLine();
+
+int[] arrayTwo = ArrayNums(elements);
+
+Console.WriteLine($"В массиве [{String.Join(", ", arrayTwo)}] колличество чисел больше 0 равно {CountPositive(arrayTwo)}");
+
+
